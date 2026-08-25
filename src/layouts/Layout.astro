@@ -1,0 +1,149 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Jagan Sivam — AI/LLM Engineer",
+  description = "AI/LLM Engineer with 5+ years building production-grade agentic systems, RAG pipelines, and full-stack applications.",
+} = Astro.props;
+
+const baseUrl = import.meta.env.BASE_URL;
+const faviconPath = `${baseUrl.endsWith("/") ? baseUrl : `${baseUrl}/`}favicon.svg`;
+
+const navLinks = [
+  { href: "#about", label: "About" },
+  { href: "#experience", label: "Experience" },
+  { href: "#skills", label: "Skills" },
+  { href: "#contact", label: "Contact" },
+];
+---
+
+<!doctype html>
+<html lang="en" class="bg-slate-950 text-slate-200 antialiased">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href={faviconPath} />
+    <title>{title}</title>
+  </head>
+  <body class="font-sans">
+    <header class="fixed inset-x-0 top-4 z-50 px-4">
+      <nav
+        id="navbar"
+        class="mx-auto flex max-w-3xl items-center justify-between gap-6 rounded-2xl border border-white/10 bg-slate-900/60 py-3 pr-3 pl-5 shadow-lg shadow-black/40 backdrop-blur-xl transition-all duration-300"
+      >
+        <a
+          href="#top"
+          class="group flex items-center gap-2.5"
+          aria-label="Jagan Sivam — home"
+        >
+          <span
+            class="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-sky-400 to-blue-600 text-xs font-black text-slate-950 shadow-md shadow-sky-500/30 transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105"
+          >
+            JS
+          </span>
+          <span class="hidden text-sm font-semibold tracking-tight text-white sm:block">
+            Jagan Sivam
+          </span>
+        </a>
+
+        <ul class="hidden items-center gap-1 text-sm md:flex">
+          {
+            navLinks.map((link, i) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="rounded-full px-3.5 py-1.5 font-medium text-slate-300 transition hover:bg-white/10 hover:text-white"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+
+        <div class="flex items-center gap-2">
+          <button
+            id="menu-btn"
+            class="rounded-lg p-2 text-slate-300 transition hover:bg-white/10 hover:text-white md:hidden"
+            aria-label="Toggle menu"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+          </button>
+        </div>
+      </nav>
+      <div
+        id="mobile-menu"
+        class="mx-auto mt-2 hidden max-w-3xl rounded-2xl border border-white/10 bg-slate-900/90 p-4 shadow-lg shadow-black/40 backdrop-blur-xl md:hidden"
+      >
+        <ul class="flex flex-col gap-1 text-sm">
+          {
+            navLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="block rounded-lg px-3 py-2 font-medium text-slate-300 transition hover:bg-white/10 hover:text-white"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+          <li class="mt-2 border-t border-white/10 pt-3">
+            <a
+              href="mailto:jagansivam71@gmail.com"
+              class="block rounded-lg px-3 py-2 font-medium text-slate-300 transition hover:bg-white/10 hover:text-white"
+            >
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main id="top">
+      <slot />
+    </main>
+
+    <script>
+      document.getElementById("menu-btn")?.addEventListener("click", () => {
+        document.getElementById("mobile-menu")?.classList.toggle("hidden");
+      });
+
+      // Scroll reveal
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+
+      // 3D tilt cards
+      const MAX_TILT = 8;
+      document.querySelectorAll<HTMLElement>(".tilt-card").forEach((card) => {
+        card.addEventListener("pointermove", (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width - 0.5;
+          const y = (e.clientY - rect.top) / rect.height - 0.5;
+          card.style.transform = `perspective(700px) rotateY(${x * MAX_TILT}deg) rotateX(${-y * MAX_TILT}deg) translateZ(6px)`;
+        });
+        card.addEventListener("pointerleave", () => {
+          card.style.transform = "";
+        });
+      });
+    </script>
+  </body>
+</html>

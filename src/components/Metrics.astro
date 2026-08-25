@@ -1,0 +1,31 @@
+---
+const outcomes = [
+  { value: "80%", label: "Voice AI latency reduction", context: "Skit.ai · 1M+ calls/day" },
+  { value: "700+", label: "Users shipped to market", context: "ZenTrack AI · iOS & Android" },
+  { value: "48+", label: "Open-source contributions", context: "GSoC 2020 · Zulip" },
+];
+---
+
+<section id="outcomes" class="py-24">
+  <div class="mx-auto max-w-5xl px-6">
+    <p class="text-sm font-medium tracking-widest text-sky-400 uppercase">
+      / Measured Outcomes
+    </p>
+    <h2 class="reveal mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">
+      Numbers over buzzwords.
+    </h2>
+    <div class="mt-12 grid gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        outcomes.map((item) => (
+          <div class="tilt-card reveal bg-slate-950 p-8">
+            <p class="bg-gradient-to-r from-sky-300 to-sky-500 bg-clip-text text-5xl font-extrabold tracking-tight text-transparent">
+              {item.value}
+            </p>
+            <p class="mt-4 text-sm font-medium text-slate-200">{item.label}</p>
+            <p class="mt-1 text-xs text-slate-500">{item.context}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

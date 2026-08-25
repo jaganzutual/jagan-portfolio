@@ -1,0 +1,96 @@
+---
+const jobs = [
+  {
+    role: "AI/LLM Engineer",
+    company: "Thoughtworks",
+    period: "Feb 2025 – Present",
+    location: "India · Clients: Gilead (current) · OTTO Group · Smarsh",
+    points: [
+      "Architecting enterprise AI agent platforms for global clients — agent orchestration, governance, and deployment at scale",
+      "Built serverless event-driven workflows on AWS Lambda, SNS/SQS with DLQs, API Gateway, and DynamoDB",
+      "Designed reusable LangGraph agent templates with multi-step orchestration — cutting deploy time from weeks to hours",
+      "Integrated LiteLLM gateway for centralized LLM routing with quota enforcement and automatic model fallback",
+      "Implemented RAG knowledge base via semantic search over internal docs, wikis, and structured data",
+      "Built guardrails framework and LangFuse observability: tracing, cost attribution, latency monitoring",
+      "Built an internal developer platform with Port.io and AI-driven developer workflows using MCP, cutting manual ops overhead by ~40% (Smarsh)",
+    ],
+  },
+  {
+    role: "CTO & Founder",
+    company: "Zutual — ZenTrack AI",
+    period: "May 2024 – Dec 2024",
+    location: "India",
+    points: [
+      "Founded and built ZenTrack AI, an AI-powered life-tracking platform unifying fitness, finance, and productivity",
+      "Shipped cross-platform Flutter app with Django + MongoDB backend to 700+ users on Play Store & App Store",
+      "Integrated LangChain for natural-language querying and LiveKit for real-time AI voice interactions",
+      "Deployed on AWS & GCP with Docker + Kubernetes, handling multi-tenant data isolation",
+    ],
+  },
+  {
+    role: "Founding Software Engineer",
+    company: "Pesto.tech",
+    period: "May 2023 – May 2024",
+    location: "India",
+    points: [
+      "Built an end-to-end EdTech platform from zero using TypeScript (TSED) + React",
+      "Built AI-powered assignment evaluation using LLM APIs, automating grading for hundreds of submissions",
+      "Implemented live mentorship sessions with real-time WebSocket communication",
+      "Delivered full-stack Admin Panel for user management, assignments, and content administration",
+    ],
+  },
+  {
+    role: "Software Engineer",
+    company: "Skit.ai",
+    period: "Apr 2021 – May 2023",
+    location: "India",
+    points: [
+      "Built backend systems processing 1M+ API calls/day for enterprise voice AI services",
+      "Reduced voice AI response latency by 80% by redesigning async pipeline with Celery + Redis",
+      "Developed scalable REST & SOAP APIs and microservices",
+      "Built observability dashboards on PostgreSQL for real-time SLA monitoring",
+    ],
+  },
+  {
+    role: "Open Source Contributor — Zulip",
+    company: "Google Summer of Code",
+    period: "May 2020 – Sep 2020",
+    location: "Remote",
+    points: [
+      "Redesigned Zulip web app settings page for improved UX and accessibility",
+      "Fixed critical bugs and refactored legacy modules, contributing 48+ commits",
+    ],
+  },
+];
+---
+
+<section id="experience" class="py-24">
+  <div class="mx-auto max-w-5xl px-6">
+    <p class="text-sm font-medium tracking-widest text-sky-400 uppercase">
+      / Experience
+    </p>
+    <h2 class="reveal mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">
+      My impact over the years.
+    </h2>
+    <ol class="mt-12 space-y-12 border-l border-white/10 pl-8">
+      {
+        jobs.map((job) => (
+          <li class="relative">
+            <span class="absolute -left-[37px] top-2 h-3 w-3 rounded-full border-2 border-sky-400 bg-slate-950" />
+            <p class="text-sm text-sky-400">{job.period}</p>
+            <h3 class="mt-1 text-xl font-semibold text-white">
+              {job.role} ·{" "}
+              <span class="text-slate-400">{job.company}</span>
+            </h3>
+            <p class="mt-0.5 text-sm text-slate-500">{job.location}</p>
+            <ul class="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-slate-400">
+              {job.points.map((point) => (
+                <li>{point}</li>
+              ))}
+            </ul>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

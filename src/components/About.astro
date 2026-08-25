@@ -1,0 +1,53 @@
+---
+const highlights = [
+  {
+    num: "01",
+    tag: "Enterprise Scale",
+    title: "Agent platforms at Thoughtworks",
+    body: "Building enterprise agent orchestration and governance platforms for global clients like Gilead, OTTO Group, and Smarsh.",
+  },
+  {
+    num: "02",
+    tag: "Zero to Product",
+    title: "Founder & CTO of ZenTrack AI",
+    body: "Built and launched an AI life-tracking platform to 700+ users on Play Store and App Store as a solo technical founder.",
+  },
+  {
+    num: "03",
+    tag: "Battle-Tested Systems",
+    title: "Scale at Skit.ai",
+    body: "Redesigned async pipelines handling 1M+ API calls/day and cut voice AI latency by 80%.",
+  },
+];
+---
+
+<section id="about" class="py-24">
+  <div class="mx-auto max-w-5xl px-6">
+    <p class="text-sm font-medium tracking-widest text-sky-400 uppercase">
+      / About Me
+    </p>
+    <h2 class="reveal mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">
+      I build production-grade applications that ship and scale.
+    </h2>
+    <p class="mt-6 max-w-3xl leading-relaxed text-slate-400">
+      5+ years building backend systems, AI agents, and full-stack products
+      across startups and enterprise.
+    </p>
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      {
+        highlights.map((item) => (
+          <div class="tilt-card reveal rounded-xl border border-white/10 bg-slate-900/60 p-6 transition hover:border-sky-400/40">
+            <div class="flex items-baseline justify-between">
+              <span class="text-3xl font-black text-white/15">{item.num}</span>
+              <span class="text-xs font-medium tracking-widest text-sky-400 uppercase">
+                {item.tag}
+              </span>
+            </div>
+            <h3 class="mt-4 font-semibold text-white">{item.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-400">{item.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

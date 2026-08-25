@@ -1,0 +1,50 @@
+---
+const achievements = [
+  { title: "Google Summer of Code 2020", detail: "Selected as contributor for Zulip (top open-source organization)" },
+  { title: "4× Mahatma Gandhi Scholarship Award", detail: "Academic excellence across undergraduate studies" },
+  { title: "48+ open-source contributions", detail: "Across multiple projects and communities" },
+  { title: "700+ users", detail: "For self-built AI product (ZenTrack AI)" },
+];
+
+const education = {
+  degree: "B.Tech in Information Technology",
+  school: "Kumaraguru College of Technology",
+  period: "2017 – 2021",
+  gpa: "CGPA: 8.6/10",
+};
+---
+
+<section id="achievements" class="py-24">
+  <div class="mx-auto max-w-5xl px-6">
+    <p class="text-sm font-medium tracking-widest text-sky-400 uppercase">
+      / Recognition
+    </p>
+    <h2 class="reveal mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">
+      Achievements & Education
+    </h2>
+    <div class="mt-12 grid gap-10 md:grid-cols-2">
+      <ul class="space-y-6">
+        {
+          achievements.map((item) => (
+            <li class="rounded-xl border border-white/10 bg-slate-900/60 p-5">
+              <h3 class="font-semibold text-white">{item.title}</h3>
+              <p class="mt-1 text-sm text-slate-400">{item.detail}</p>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="tilt-card reveal rounded-xl border border-white/10 bg-slate-900/60 p-6">
+        <h3 class="text-lg font-semibold text-white">{education.degree}</h3>
+        <p class="mt-2 text-sm text-slate-400">{education.school}</p>
+        <p class="mt-1 text-sm text-slate-500">
+          {education.period} · {education.gpa}
+        </p>
+        <h3 class="mt-8 text-lg font-semibold text-white">Languages</h3>
+        <p class="mt-2 text-sm text-slate-400">
+          English — Professional Working Proficiency<br />
+          Tamil — Native
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

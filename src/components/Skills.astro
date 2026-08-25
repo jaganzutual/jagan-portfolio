@@ -1,0 +1,59 @@
+---
+const groups = [
+  {
+    name: "AI & LLM Systems",
+    items: ["LangGraph", "LangChain", "LlamaIndex", "MCP", "RAG Architecture", "AI Agents", "Prompt Engineering", "LLM Guardrails", "LangFuse"],
+  },
+  {
+    name: "Vector DBs & Retrieval",
+    items: ["Pinecone", "Chroma", "Semantic Search", "Knowledge Retrieval"],
+  },
+  {
+    name: "Backend",
+    items: ["Python", "FastAPI", "Django", "TypeScript", "Node.js", "REST & SOAP APIs", "Microservices", "Celery", "Redis"],
+  },
+  {
+    name: "AWS Serverless",
+    items: ["Lambda", "SNS", "SQS (DLQs)", "API Gateway", "CloudWatch", "IAM", "DynamoDB"],
+  },
+  {
+    name: "Data",
+    items: ["PostgreSQL", "MongoDB", "Neo4j"],
+  },
+  {
+    name: "Frontend & Mobile",
+    items: ["React", "Flutter", "Dart"],
+  },
+  {
+    name: "DevOps & Cloud",
+    items: ["Docker", "Kubernetes", "AWS", "GCP", "LiteLLM Gateway"],
+  },
+];
+---
+
+<section id="skills" class="py-24">
+  <div class="mx-auto max-w-5xl px-6">
+    <p class="text-sm font-medium tracking-widest text-sky-400 uppercase">
+      / Tech Stack
+    </p>
+    <h2 class="reveal mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">
+      Tools I use to ship.
+    </h2>
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        groups.map((group) => (
+          <div class="rounded-xl border border-white/10 bg-slate-900/60 p-6">
+            <h3 class="font-semibold text-white">{group.name}</h3>
+            <div class="mt-4 flex flex-wrap gap-2">
+              {group.items.map((item) => (
+                <span class="rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium text-sky-300">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
