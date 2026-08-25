@@ -6,7 +6,7 @@ Personal portfolio built with Astro and deployed to GitHub Pages.
 
 The repository includes a GitHub Actions workflow at `.github/workflows/deploy.yml`.
 
-1. Push the project to the `main` branch of `jaganzutual/jagan-portfolio`.
+1. Push the project to the `master` branch of `jaganzutual/jagan-portfolio`.
 2. In GitHub, open **Settings → Pages**.
 3. Set **Source** to **GitHub Actions**.
 4. After the workflow completes, visit `https://jaganzutual.github.io/jagan-portfolio/`.
